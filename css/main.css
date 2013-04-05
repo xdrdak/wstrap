@@ -1,0 +1,31 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+   .fat-header{
+   	position: relative;
+   	width: 100%;
+   }
+
+   .fat-header .floating-elements{
+   	position: absolute; 
+   	top: 10%; 
+   	left: 0; 
+   	width: 100%;
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
