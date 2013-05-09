@@ -56,12 +56,8 @@
 </head>
 <!--top-nav -->
 <body <?php body_class(); ?>>
-  <?php if (has_nav_menu('topnav', 'toolbox')) { ?>
-  <?php wp_nav_menu(array(
-    'container'       => '',
-    'theme_location'  => 'topnav')
-  ); 
-  ?>
+   <?php if (has_nav_menu('topnav', 'toolbox')) { ?>
+   <div class='navigation'>
 
   <div class="navbar navbar-inverse navbar-fixed-top <?php echo (is_admin_bar_showing())?"navbar-admin-adjustment":"" ?>">
     <div class="navbar-inner">
@@ -71,73 +67,47 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="#">Project name</a>
-            <div class="nav-collapse collapse top-nav">
-                <ul class="nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li class="nav-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <form class="navbar-form pull-right">
-                    <input class="span2" type="text" placeholder="Email">
-                    <input class="span2" type="password" placeholder="Password">
-                    <button type="submit" class="btn">Sign in</button>
-                </form>
-            </div><!--/.nav-collapse -->
+            <span class="brand"><?php bloginfo( 'name' ); ?></span>
+
+                <?php wp_nav_menu(
+                     	array( 'theme_location' => 'topnav',
+                     		  'container_class' => 'nav-collapse collapse top-nav main-menu pull-right',
+                     		   'menu_class'      => 'nav'
+
+                     )); ?>
+           <!--/.nav-collapse -->
         </div>
     </div>
-</div>
+
+    </div>
+    </div>
 <?php } ?>
 <!--/top-nav -->
 
-<div id="page" class="hfeed container">
+
+  <!--This is the website's container -->
+<div id="page" class="hfeed  container">
     <?php do_action( 'before' ); ?>
-    <header id="branding" role="banner">
-      <hgroup>
-         <h1 id="site-title"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-         <h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
-     </hgroup>
+
+
+     <?php if (has_nav_menu('primary', 'toolbox')) { ?>
+    <div class="masthead">
  <!--regular-nav -->
+ 	<div class="header-nav justified-navbar">
          <div class="navbar">
             <div class="navbar-inner">
                 <div class="container">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".main-menu">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <a class="brand" href="#">Title</a>
-                    <div class="nav-collapse collapse main-menu">
-                        <ul class="nav">
-                            <li class="active"><a href="#">Home</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                        </ul>
-                    </div>
+                     <?php wp_nav_menu(
+                     	array( 'theme_location' => 'primary',
+                     		  'container_class' => 'main-menu',
+                     		   'menu_class'      => 'nav'
+
+                     )); ?>
                 </div>
             </div>
         </div>
+   </div>
   <!--/regular-nav -->
-     <nav id="access" role="navigation">
-         <h1 class="assistive-text section-heading"><?php _e( 'Main menu', 'toolbox' ); ?></h1>
-         <div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'toolbox' ); ?>"><?php _e( 'Skip to content', 'toolbox' ); ?></a></div>
+  </div>
+  <?php } ?>
 
-       
-  <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-   
-
-</nav><!-- #access -->
-
-</header><!-- #branding -->

@@ -13,9 +13,9 @@
  */
 
 get_header(); ?>
-
+	<div class="row">
 		<div id="primary">
-			<div id="content" role="main">
+			<div id="content" role="main" class="span9">
 
 			<?php if ( have_posts() ) : ?>
 
@@ -23,7 +23,6 @@ get_header(); ?>
 
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
-
 					<?php
 						/* Include the Post-Format-specific template for the content.
 						 * If you want to overload this in a child theme then include a file
@@ -53,6 +52,8 @@ get_header(); ?>
 
 			</div><!-- #content -->
 		</div><!-- #primary -->
-
-<?php get_sidebar(); ?>
+		<div class="span3">
+			<?php get_sidebar(); ?>
+		</div>
+	</div>
 <?php get_footer(); ?>

@@ -7,12 +7,13 @@
  */
 
 get_header(); ?>
-
+<div class="row">
 		<div id="primary">
-			<div id="content" role="main">
+		
+			<div id="content" role="main" class="span9">
 
 			<?php while ( have_posts() ) : the_post(); ?>
-
+			
 				<?php toolbox_content_nav( 'nav-above' ); ?>
 
 				<?php get_template_part( 'content', 'single' ); ?>
@@ -29,6 +30,8 @@ get_header(); ?>
 
 			</div><!-- #content -->
 		</div><!-- #primary -->
-
-<?php get_sidebar(); ?>
+		<div id="content" role="main" class="span3">
+		<?php get_sidebar(); ?>
+		</div>
+</div>
 <?php get_footer(); ?>

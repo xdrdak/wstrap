@@ -8,9 +8,9 @@
  */
 
 get_header(); ?>
-
-		<div id="primary" class="full-width">
-			<div id="content" role="main">
+<div class="row">
+		<div id="primary">
+			<div id="content" role="main" class="span12">
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
@@ -22,5 +22,5 @@ get_header(); ?>
 
 			</div><!-- #content -->
 		</div><!-- #primary -->
-
+</div>
 <?php get_footer(); ?>
